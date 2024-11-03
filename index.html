@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Create Resume Created by Huzaifa Abdulrab
+        </h1>
+
+        <!--  User Input -->
+        <form id="resumeForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="profession">Profession:</label>
+            <input type="text" id="profession" name="profession" required>
+
+            <label for="skills">Skills:</label>
+            <textarea id="skills" name="skills" required></textarea>
+
+            <label for="education">Education:</label>
+            <textarea id="education" name="education" required></textarea>
+
+            <label for="languages">Languages:</label>
+            <textarea id="languages" name="languages" required></textarea>
+
+            <label for="interests">Interests:</label>
+            <textarea id="interests" name="interests" required></textarea>
+
+            <label for="contact">Contact Information:</label>
+            <textarea id="contact" name="contact" required></textarea>
+
+            <button type="button" onclick="createResume()">Create Resume</button>
+        </form>
+
+        <!--Generated Resume -->
+        <div id="resumeOutput">
+            <h2>Generated Resume:</h2>
+            <div id="resume"></div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

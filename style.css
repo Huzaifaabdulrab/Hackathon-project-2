@@ -1,0 +1,109 @@
+/* General styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+main {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e3f5e0;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: rgb(26, 67, 67);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    padding: 10px;
+    background-color: #f7fafc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    background-color: rgb(26, 67, 67);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Resume output styling */
+#resumeOutput {
+    margin-top: 20px;
+}
+
+#resume {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #e3f5e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#resume h2 {
+    margin-top: 0;
+    color: rgb(26, 67, 67);
+    font-size: 1.5em;
+}
+
+/* Hover Effects */
+.skills, .interest, .personalInfo {
+    background-color: #f7fafc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.skills:hover, .interest:hover, .personalInfo:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #resume h2 {
+        font-size: 1.3em;
+    }
+}
