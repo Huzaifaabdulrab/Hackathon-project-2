@@ -1,6 +1,6 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-    var _a;
+    var _a, _b;
     // Function to create and update the resume preview
     function createResume() {
         const userName = document.getElementById("name").value || "No Name Provided";
@@ -33,4 +33,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Trigger the createResume function to update preview
     (_a = document.getElementById("resumeOutput")) === null || _a === void 0 ? void 0 : _a.addEventListener('click', createResume);
+    (_b = document.getElementById("btn2")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+        const resumeElement = document.getElementById("resumeContent");
+        if (resumeElement) {
+            html2pdf().set({
+                margin: 1,
+                filename: "resume.pdf",
+                image: { type: "jpeg", quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: "portrait" }
+            }).from(resumeElement).save();
+        }
+    });
+    // // Download PDF when Download Resume button is clicked
+    // document.getElementById("btn2")?.addEventListener("click", () => {
+    //     const resumeElement = document.getElementById('resumeContent');
+    //     if (resumeElement) {
+    //         html2pdf().set({
+    //             margin: 1,
+    //             filename: 'resume.pdf',
+    //             image: { type: 'jpeg', quality: 0.98 },
+    //             html2canvas: { scale: 2 },
+    //             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    //         }).from(resumeElement).save();
+    //     }
+    // });
 });

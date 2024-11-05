@@ -1,3 +1,4 @@
+declare let html2pdf: any;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Function to create and update the resume preview
@@ -6,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const userProfession = (document.getElementById("profession") as HTMLInputElement).value || "No Profession Provided";
 
         // Helper function to format text areas into list items
-        const formatList = (input: string) => 
+        const formatList = (input: string) =>
             input ? input.split('\n').map(item => `<li>${item.trim()}</li>`).join('') : "<li>No Data Provided</li>";
 
         const userSkills = formatList((document.getElementById("skills") as HTMLTextAreaElement).value);
@@ -38,4 +39,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger the createResume function to update preview
     document.getElementById("resumeOutput")?.addEventListener('click', createResume);
+
+    document.getElementById("btn2")?.addEventListener("click", () => {
+        const resumeElement = document.getElementById("resumeContent");
+        if (resumeElement) {
+            html2pdf().set(
+                {
+                    margin: 1,
+                    filename: "resume.pdf",
+                    image: { type: "jpeg", quality: 0.98 },
+                    html2canvas:{scale:2},
+                    jsPDF : {unit :'in', format : 'letter' , orientation :"portrait"}
+                }
+            ).from(resumeElement).save()
+        }
+    })
+    // // Download PDF when Download Resume button is clicked
+    // document.getElementById("btn2")?.addEventListener("click", () => {
+    //     const resumeElement = document.getElementById('resumeContent');
+    //     if (resumeElement) {
+    //         html2pdf().set({
+    //             margin: 1,
+    //             filename: 'resume.pdf',
+    //             image: { type: 'jpeg', quality: 0.98 },
+    //             html2canvas: { scale: 2 },
+    //             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    //         }).from(resumeElement).save();
+    //     }
+    // });
 });
