@@ -1,4 +1,4 @@
-declare let html2pdf: any;
+declare let html2pdf: string |number |boolean|any;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Function to create and update the resume preview
@@ -54,17 +54,4 @@ document.addEventListener("DOMContentLoaded", () => {
             ).from(resumeElement).save()
         }
     })
-    // // Download PDF when Download Resume button is clicked
-    // document.getElementById("btn2")?.addEventListener("click", () => {
-    //     const resumeElement = document.getElementById('resumeContent');
-    //     if (resumeElement) {
-    //         html2pdf().set({
-    //             margin: 1,
-    //             filename: 'resume.pdf',
-    //             image: { type: 'jpeg', quality: 0.98 },
-    //             html2canvas: { scale: 2 },
-    //             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    //         }).from(resumeElement).save();
-    //     }
-    // });
 });
