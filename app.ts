@@ -1,34 +1,41 @@
-function createResume():void {
-    const userName = (document.getElementById("name") as HTMLInputElement).value;
-    const userProfession = (document.getElementById("profession") as HTMLInputElement).value;
-    const userSkills = (document.getElementById("skills") as HTMLTextAreaElement).value;
-    const userEduction =(document.getElementById("education") as HTMLTextAreaElement).value;
-    const  userLanguage = (document.getElementById("languages")as HTMLTextAreaElement).value;
-    const userInterests = (document.getElementById("interests") as HTMLTextAreaElement).value;
-    const userContact = (document.getElementById("contact")as HTMLTextAreaElement).value;
 
-    const resumeHtml=`
-    <div>
-    <h1>${userName}</h1>
-    <h2>${userProfession}</h2>
-    <h3>Skills</h3>
-    <p>⚫${userSkills}</p>
-    <h3>Education</h3>
-    <p>⚫${userEduction}</p>
-    <h3>Language</h3>
-    <p>⚫${userLanguage}</p>
-    <h3>Interest</h3>
-    <p>⚫${userInterests}</p>
-    <h3>Contact</h3>
-    <p>${userContact}</p>
-    </div>
-    `;
- document.getElementById('resume')!.innerHTML=resumeHtml
-}
+document.addEventListener("DOMContentLoaded", () => {
+    // Function to create and update the resume preview
+    function createResume() {
+        const userName = (document.getElementById("name") as HTMLInputElement).value || "No Name Provided";
+        const userProfession = (document.getElementById("profession") as HTMLInputElement).value || "No Profession Provided";
 
-//add event;
+        // Helper function to format text areas into list items
+        const formatList = (input: string) => 
+            input ? input.split('\n').map(item => `<li>${item.trim()}</li>`).join('') : "<li>No Data Provided</li>";
 
-const eventCall = document.getElementById("resumeOutput")?.addEventListener('click',(e)=>{
-    // e.preventDefault();
-    createResume()
-})
+        const userSkills = formatList((document.getElementById("skills") as HTMLTextAreaElement).value);
+        const userEducation = formatList((document.getElementById("education") as HTMLTextAreaElement).value);
+        const userLanguage = formatList((document.getElementById("languages") as HTMLTextAreaElement).value);
+        const userInterests = formatList((document.getElementById("interests") as HTMLTextAreaElement).value);
+        const userContact = formatList((document.getElementById("contact") as HTMLTextAreaElement).value);
+
+        const resumeHtml = `
+            <div id="resumeContent" contenteditable="true" style="font-family: Arial, sans-serif; color: #333; background-color: #e5f7e5; padding: 20px; border-radius: 8px;">
+                <h1 style="color: #2e3a23;">${userName}</h1>
+                <h2 style="color: #2e3a23;">${userProfession}</h2>
+                <h3>Skills</h3>
+                <ul>${userSkills}</ul>
+                <h3>Education</h3>
+                <ul>${userEducation}</ul>
+                <h3>Languages</h3>
+                <ul>${userLanguage}</ul>
+                <h3>Interests</h3>
+                <ul>${userInterests}</ul>
+                <h3>Contact Information</h3>
+                <ul>${userContact}</ul>
+            </div>
+        `;
+
+        // Insert the generated resume into the preview section
+        document.getElementById('resume')!.innerHTML = resumeHtml;
+    }
+
+    // Trigger the createResume function to update preview
+    document.getElementById("resumeOutput")?.addEventListener('click', createResume);
+});

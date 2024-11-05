@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
     <link rel="stylesheet" href="/style.css">
 </head>
-
 <body>
     <main>
-        <h1>Create Resume Created by Huzaifa Abdulrab
-        </h1>
+        <h1>Create Resume by Huzaifa Abdulrab</h1>
 
-        <!--  User Input -->
+        <!-- User Input Form -->
         <form id="resumeForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -36,17 +33,18 @@
             <label for="contact">Contact Information:</label>
             <textarea id="contact" name="contact" required></textarea>
 
-            <button type="button" onclick="createResume()">Create Resume</button>
+            <button type="button" id="resumeOutput">Create Resume</button>
         </form>
 
-        <!--Generated Resume -->
-        <div id="resumeOutput">
+        <!-- Generated Resume Section -->
+        <div>
             <h2>Generated Resume:</h2>
-            <div id="resume"></div>
+            <div id="resume" contenteditable="true"></div> <!-- Making the resume editable here -->
         </div>
+        
     </main>
 
-    <script src="app.js"></script>
+    <!-- JavaScript File -->
+    <script src="/app.js"></script>
 </body>
-
 </html>
